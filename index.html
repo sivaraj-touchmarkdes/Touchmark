@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="canonical" href="#" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touchmark Des</title>
+
+
+
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://touchmarkwf.com/timesheet/front_assets/images/logo/logoT.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://touchmarkwf.com/timesheet/front_assets/images/logo/logoT.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://touchmarkwf.com/timesheet/front_assets/images/logo/logoT.png">
+    <link href="./output.css" rel="stylesheet">
+    <link href="./src/input.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css">
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <style>
+        .container {
+            display: flex;
+            margin: 80px auto;
+            gap: 20px;
+        }
+
+        .slide {
+            display: flex;
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+            transition: flex 0.7s ease-in;
+        }
+
+        .slide>img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide>.title {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .active {
+            flex: 5;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--start header-->
+    <header class="fixed w-full top-0 z-20">
+        <nav id="header" class="border-gray-200 py-2.5">
+            <div
+                class="flex flex-wrap items-center justify-between xl:max-w-screen-xl 2xl:max-w-screen-2xl lg:max-w-screen-lg px-4 mx-auto">
+                <a href="#" class="flex items-center">
+                    <img src="./src/assets/img/tds-color-logo.png" class="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
+                </a>
+                <div class="flex items-center lg:order-2">
+                    <a href="/"
+                        class="text-white bg-[#009ADC] focus:ring-4 font-medium rounded-3xl text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 focus:outline-none">Let's
+                        Talk</a>
+                    <button data-collapse-toggle="mobile-menu-2" type="button"
+                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="mobile-menu-2" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <li>
+                            <a href="#"
+                                class="navbartext block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#009ADC] lg:p-0 dark:text-white lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="navbartext block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#009ADC] lg:p-0 dark:text-white lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Company</a>
+                        </li>
+                        <li>
+                            <a href="./rupinis-casestudy.html"
+                                class="navbartext block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#009ADC] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Case
+                                Study</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="navbartext block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#009ADC] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="navbartext block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-[#009ADC] lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--End header-->
+
+
+    <!-- Start : Hero Video Banner -->
+    <section class="relative h-screen flex flex-col items-center justify-center text-white py-5 px-3">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <video
+                class="min-w-full min-h-full absolute object-cover top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                src="./src/assets/img/hero-banner-vid.mp4" type="video/mp4" autoplay muted loop></video>
+            <div class="absolute w-full h-full bg-black opacity-10"></div>
+        </div>
+        <div class="relative z-10 space-y-2 lg:pt-18">
+            <div class="xl:max-w-screen-xl 2xl:max-w-screen-2xl lg:max-w-screen-lg py-8 xl:px-14 lg:px-10 lg:py-24">
+                <div class="border rounded-3xl inline-flex justify-between items-center px-3 py-2 gap-5 lg:-mt-28">
+                    <h3 class="text-sm">The power of technology for future</h3>
+                    <img src="./src/assets/img/arrow-1.svg">
+                </div>
+                <div class="lg:grid lg:grid-cols-10 lg:gap-12 xl:gap-0 mx-auto pt-8">
+
+                    <div class="col-span-5 flex justify-start items-center">
+                        <h1 class="xl:text-5xl 2xl:text-6xl lg:text-6xl text-left leading-tight">We address <br
+                                class="lg:block hidden">challenges &
+                            create <br class="lg:block hidden">future ready solutions</h1>
+                    </div>
+
+                    <div class="col-span-2 xl:mt-36 2xl:mt-48 lg:mt-48 hidden lg:block px-16">
+                        <div class="border border-b border-white opacity-10"></div>
+                    </div>
+
+                    <div class="col-span-3 space-y-8 md:grid md:space-y-0">
+                        <p
+                            class="lg:text-base 2xl:text-base xl:text-sm text-left mt-0 leading-tight flex justify-center items-center">
+                            With
+                            a keen focus on innovation and adaptability, we thrive in dynamic environments where
+                            obstacles are transformed into opportunities. Our dedicated team works tirelessly to
+                            understand the unique needs of our clients and develop tailored solutions that anticipate
+                            and meet their evolving requirements</p>
+                        <div class="flex justify-start items-center">
+                            <a href="/"
+                                class="inline-flex px-3 py-2 mt-3 lg:text-base 2xl:text-base xl:text-sm rounded-3xl text-black bg-white">Get
+                                Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 mt-8 lg:mt-12">
+                    <h3>Trusted by the top enterprises where obstacles are transformed into opportunities</h3>
+                    <div
+                        class="flex justify-start items-center space-x-7 overflow-x-scroll lg:overflow-x-hidden pt-10 lg:pt-0">
+                        <img src="./src/assets/img/RUPINIS-LOGO-LIGHT.png" class="">
+                        <img src="./src/assets/img/logo-light.png" class="">
+                        <img src="./src/assets/img/tag_logo_white.png" class="">
+                        <img src="./src/assets/img/SIDBI_LOGO_white.png" class="">
+                        <img src="./src/assets/img/cocacola.svg" class="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End : Hero Video Banner -->
+
+
+    <!-- Start : A systematically approach -->
+    <section class="bg-white">
+        <div
+            class="items-center lg:max-w-screen-lg 2xl:max-w-screen-2xl xl:max-w-screen-xl py-8 mx-auto lg:py-52 2xl:py-52 xl:py-40 lg:px-6 2xl:px-6 xl:px-14">
+            <h1 class="text-center text-3xl lg:text-6xl font-semibold text-[#009ADC]">A systematically approach that
+                improves the
+                performance of your business</h1>
+        </div>
+    </section>
+    <!-- End : A systematically approach -->
+
+
+    <!-- Start : Touchmark experts fuel -->
+    <section class="bg-[#ECF9FF] relative">
+        <img src="./src/assets/img/circle_ripple_bck.svg" class="absolute bottom-0 right-0 z-0" alt="Background Image">
+        <div
+            class="xl:max-w-screen-xl 2xl:max-w-screen-2xl lg:max-w-screen-lg py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 xl:px-14 lg:px-10">
+            <div class="lg:-ml-28 lg:px-28">
+                <h1 class="text-xl lg:text-5xl font-semibold">Touchmark experts fuel the growth engines of over 20+
+                    global
+                    enterprises annually</h1>
+                <p class="text-lg lg:text-2xl lg:pt-7">We collaborate closely with enterprises, leaders in various
+                    industries
+                    worldwide, to unlock their growth potential in remarkable ways</p>
+            </div>
+            <div class="block lg:flex justify-between items-center lg:gap-8 text-white lg:px-0 px-3">
+
+                <div class="col-6 bg-[#1A4A93] lg:w-[668px] lg:h-[419px]">
+                    <div class="px-14 py-14 space-y-10">
+                        <h1 class="text-4xl">Address challenges and create solutions</h1>
+                        <p class="text-2xl">We work together with enterprises, leaders in every industry across the
+                            globe to unlock their growth potential in extraordinary ways.</p>
+                        <div class="flex justify-between items-center">
+                            <p class="text-base font-medium">LEARN MORE</p>
+                            <img src="./src/assets/img/arrow-1.svg">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 bg-[#009ADC] lg:w-[668px] lg:h-[419px] lg:mt-o mt-3">
+                    <div class="px-14 py-14 space-y-10">
+                        <h1 class="text-4xl">Frugal Engineering & Agile Methodology</h1>
+                        <p class="text-2xl">We work together with enterprises, leaders in every industry across the
+                            globe to unlock their growth potential in extraordinary ways.</p>
+                        <div class="flex justify-between items-center">
+                            <p class="text-base font-medium">LEARN MORE</p>
+                            <img src="./src/assets/img/arrow-1.svg">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <h2 class="text-2xl text-left font-semibold text-[#009ADC]">View our projects</h2>
+            </div>
+        </div>
+    </section>
+    <!-- End : Touchmark experts fuel -->
+
+
+    <!---start - Tab Switching Automatic - Discover how businesses grow with Touchmark -->
+    <section class="bg-white">
+        <div class="items-center lg:max-w-screen-lg 2xl:max-w-screen-2xl xl:max-w-screen-xl px-4 py-8 mx-auto lg:px-6">
+            <div class="min-h-screen flex flex-col justify-center">
+
+                <div class="flex flex-row items-center justify-evenly lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl"
+                    x-data="{ tab: 1 }" x-init="() => {
+                            setInterval(() => {
+                                tab = tab === 5 ? 1 : tab + 1;
+                            }, 5000);
+                        }">
+
+                    <!--Start : Content Section-->
+                    <div class="w-4/5 grid grid-rows-2 gap-12 lg:ml-20">
+
+                        <!--Fixed Content start : Discover how businesses grow with Touchmark-->
+                        <div class="">
+                            <div class="flex justify-between items-start">
+                                <h1 class="lg:text-5xl 2xl:text-5xl xl:text-3xl font-semibold text-left text-black">
+                                    Discover how businesses grow
+                                    with Touchmark</h1>
+                                <div class="px-20 lg:space-y-6 2xl:space-y-6 xl:space-y-3">
+                                    <p class="lg:text-xl 2xl:text-lg xl:text-base text-left text-black">Throughout
+                                        the years, our power house
+                                        team have consistently provided innovative solutions to leading
+                                        organizations and enterprises worldwide.</p>
+                                    <div
+                                        class="inline-flex border border-[#009ADC] rounded-3xl py-2 px-4 space-x-3 justify-center items-center">
+                                        <a href="#"
+                                            class="text-[#009ADC] lg:text-sm 2xl:text-sm xl:text-xs font-medium">View
+                                            customer
+                                            stories</a><img src="./src/assets/img/arrow-blue.svg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Fixed Content End : Discover how businesses grow with Touchmark-->
+
+                        <!--Changing Number Count start : Increase scale , more productivity , more cost saving-->
+                        <div x-show="tab === 1">
+                            <!--value of counts start: sales, productivity, saving-->
+                            <div>
+                                <div
+                                    class="flex justify-start items-center lg:space-x-32 2xl:space-x-32 xl:space-x-16 lg:-ml-5 lg:-mt-10">
+                                    <!--Count value - 01 -->
+                                    <div class="p-5 text-left lg:space-y-5 2xl:space-y-5 xl:space-y-2">
+                                        <h1 class="lg:text-6xl 2xl:text-6xl xl:text-3xl font-semibold">32%</h1>
+                                        <p class="text-2xl text-[#114962] font-medium">increase in sales</p>
+                                        <div class="border-2 border-x-transparent border-b-[#009ADC] w-3/4"></div>
+                                    </div>
+                                    <!--Count value - 02 -->
+                                    <div class="p-5 text-left lg:space-y-5 2xl:space-y-5 xl:space-y-2">
+                                        <h1 class="lg:text-6xl 2xl:text-6xl xl:text-3xl font-semibold">45%</h1>
+                                        <p class="text-2xl text-[#114962] font-medium">more productivity</p>
+                                        <div class="border-2 border-x-transparent border-b-[#009ADC]"></div>
+                                    </div>
+                                    <!--Count value - 03 -->
+                                    <div class="p-5 text-left lg:space-y-5 2xl:space-y-5 xl:space-y-2">
+                                        <h1 class="lg:text-6xl 2xl:text-6xl xl:text-3xl font-semibold">67%</h1>
+                                        <p class="text-2xl text-[#114962] font-medium">more cost saving</p>
+                                        <div class="border-2 border-x-transparent border-b-[#009ADC]"></div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3 mt-10">
+                                    <a href="#">
+                                        <h3 class="lg:text-base 2cl:text-base xl:text-sm font-medium">READ OUR
+                                            CLIENTS STORY</h3>
+                                    </a>
+                                    <img src="./src/assets/img/arrow-black.svg">
+                                </div>
+                            </div>
+                            <!--value of counts End: sales, productivity, saving-->
+                        </div>
+                        <div x-show="tab === 2">Content for Tab 2</div>
+                        <div x-show="tab === 3">Content for Tab 3</div>
+                        <div x-show="tab === 4">Content for Tab 4</div>
+                        <div x-show="tab === 5">Content for Tab 5</div>
+                        <!--Changing Number Count start : Increase scale , more productivity , more cost saving-->
+                    </div>
+                    <!--End : Content section-->
+
+
+                    <!--Logo Icons start: Switcher for tab switches -->
+                    <div class="flex flex-col w-1/4 space-y-4">
+                        <div class="flex justify-center items-center">
+
+                            <div class="lg:space-y-8 2xl:space-y-8 xl:space-y-2">
+                                <div class="px-4 py-3 bg-[#F1FBFF] rounded-lg border-2"
+                                    :class="{ 'border-[#009adc9d]': tab === 1, 'border-none': tab !== 1 }">
+                                    <a class="" href="#" @click.prevent="tab = 1">
+                                        <img :class="{ 'filter grayscale-0': tab === 1, 'filter grayscale': tab !== 1 }"
+                                            src="./src/assets/img/cocacola_logo.png" alt="Image 1" class="w-32">
+                                    </a>
+                                </div>
+                                <div class="px-4 py-3 bg-[#F1FBFF] rounded-lg border-2"
+                                    :class="{ 'border-[#009adc9d]': tab === 2, 'border-none': tab !== 2 }">
+                                    <a class="" href="#" @click.prevent="tab = 2">
+                                        <img :class="{ 'filter grayscale-0': tab === 2, 'filter grayscale': tab !== 2 }"
+                                            src="./src/assets/img/RBL_Bank_bw.png" alt="Image 2" class="w-32">
+                                    </a>
+                                </div>
+                                <div class="px-4 py-3 bg-[#F1FBFF] rounded-lg border-2"
+                                    :class="{ 'border-[#009adc9d]': tab === 3, 'border-none': tab !== 3 }">
+                                    <a class="" href="#" @click.prevent="tab = 3">
+                                        <img :class="{ 'filter grayscale-0': tab === 3, 'filter grayscale': tab !== 3 }"
+                                            src="./src/assets/img/hayakawa-logo.png" alt="Image 3" class="w-32">
+                                    </a>
+                                </div>
+                                <div class="px-4 py-3 bg-[#F1FBFF] rounded-lg border-2"
+                                    :class="{ 'border-[#009adc9d]': tab === 4, 'border-none': tab !== 4 }">
+                                    <a class="" href="#" @click.prevent="tab = 4">
+                                        <img :class="{ 'filter grayscale-0': tab === 4, 'filter grayscale': tab !== 4 }"
+                                            src="./src/assets/img/rupinis-logo.png" alt="Image 4" class="w-32">
+                                    </a>
+                                </div>
+                                <div class="px-4 py-3 bg-[#F1FBFF] rounded-lg border-2"
+                                    :class="{ 'border-[#009adc9d]': tab === 5, 'border-none': tab !== 5 }">
+                                    <a class="" href="#" @click.prevent="tab = 5">
+                                        <img :class="{ 'filter grayscale-0': tab === 5, 'filter grayscale': tab !== 5 }"
+                                            src="./src/assets/img/sidbi-logo.png" alt="Image 5" class="w-32">
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Logo Icons End: Switcher for tab switches -->
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!---End - Tab Switching Automatic - Discover how businesses grow with Touchmark -->
+
+
+    <!-- Start : Rapid and accredited -->
+    <section class="bg-[#ECF9FF] relative 2xl:py-10">
+        <img src="./src/assets/img/yellow_circle_bck-fill.svg" class="absolute top-0 right-0 z-0"
+            alt="Background Image">
+        <div
+            class="xl:max-w-screen-xl 2xl:max-w-screen-2xl lg:max-w-screen-lg py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 xl:px-14 lg:px-10">
+            <div class="lg:px-28 2xl:px-28 xl:px-8 text-center">
+                <h1 class="text-xl lg:text-5xl font-semibold">We provide rapid and accredited global expertise</h1>
+                <p class="text-lg lg:text-xl 2xl:px-60 lg:px-60 xl:px-40 lg:pt-7">As we strive to unlock next-generation
+                    solutions for your
+                    business, we have established partnerships with top technology providers</p>
+            </div>
+            <div class="flex justify-center items-center">
+                <div
+                    class="lg:max-w-screen-xl block lg:flex justify-around lg:gap-16 items-center text-white lg:px-0 px-3">
+
+                    <div class="col-6">
+                        <div class="py-14 space-y-10">
+                            <div class="flex justify-center items-center">
+                                <img src="./src/assets/img/digital-ocean-logo.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 lg:mt-o mt-3">
+                        <div class="py-14 space-y-10">
+                            <div class="flex justify-center items-center">
+                                <img src="./src/assets/img/amazon-partner-logo.jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End : Rapid and accredited -->
+
+
+    <!-- Start : case studies -->
+    <section class="bg-white">
+        <div
+            class="items-center lg:max-w-screen-lg 2xl:max-w-screen-2xl xl:max-w-screen-xl px-4 py-8 mx-auto lg:py-24 xl:px-14 lg:px-10">
+
+            <div class="grid grid-cols-12">
+
+                <div class="lg:col-span-4 col-span-12 flex justify-start items-center">
+                    <div class="space-y-10">
+                        <h2 class="text-5xl text-black font-semibold">Case Studies</h2>
+                        <p class="text-lg text-black -ml-20 px-20">The enhanced performance, scalability of the
+                            technology have empowered us to drive innovation, improve operational efficiency, and
+                            deliver exceptional value to its customers.</p>
+                        <div
+                            class="inline-flex justify-between items-center bg-[#1C95C9] rounded-3xl px-3 py-2 space-x-3">
+                            <a href="/" class="text-lg text-white">More Projects</a>
+                            <img src="./src/assets/img/arrow-1.svg">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 col-span-12 flex justify-end items-center">
+                    <div class="">
+                        <div class="container">
+                            <div class="slide active">
+                                <img src="./src/assets/img/school_img.png" alt="school_img">
+                                <h2 class="title">Title</h2>
+                            </div>
+                            <div class="slide">
+                                <img src="./src/assets/img/rupini_card.png" alt="rupini_card">
+                                <h2 class="title">Title</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End : case studies -->
+
+
+    <!--start Footer-->
+    <footer class="bg-white">
+        <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+                <div>
+                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h3>
+                    <ul class="text-gray-500 dark:text-gray-400">
+                        <li class="mb-4">
+                            <a href="#" class=" hover:underline">About</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Careers</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Brand Center</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h3>
+                    <ul class="text-gray-500 dark:text-gray-400">
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Discord Server</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Twitter</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Facebook
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h3>
+                    <ul class="text-gray-500 dark:text-gray-400">
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Privacy Policy</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Licensing</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Terms</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h3>
+                    <ul class="text-gray-500 dark:text-gray-400">
+                        <li class="mb-4">
+                            <a href="#" class=" hover:underline">About</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Careers</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Brand Center</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h3>
+                    <ul class="text-gray-500 dark:text-gray-400">
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">iOS</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Android</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Windows</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">MacOS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Footer-->
+
+</body>
+
+
+<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+
+<!----header---> 
+<script>
+    window.addEventListener('scroll', function () {
+        var header = document.querySelector('header');
+        var companyLinks = document.querySelectorAll('.navbartext');
+
+        // Change background color of header
+        if (window.scrollY > 0) {
+            header.classList.add('bg-white');
+        } else {
+            header.classList.remove('bg-white');
+        }
+
+        // Change text color of company links
+        var textColorClass = window.scrollY > 0 ? 'text-black' : 'text-white';
+        companyLinks.forEach(function (link) {
+            link.classList.remove('text-white', 'text-black');
+            link.classList.add(textColorClass);
+        });
+    });
+</script>
+<!----header--->
+
+<!--image expanding slider-->
+<script>
+    const removeActiveClasses = () => {
+        slideElement.forEach((slide) => {
+            slide.classList.remove("active");
+        });
+    };
+
+    const slideElement = document.querySelectorAll(".slide");
+    slideElement.forEach((slide) => {
+        slide.addEventListener("click", () => {
+            removeActiveClasses();
+            slide.classList.add("active");
+        });
+    });
+</script>
+<!--image expanding slider-->
+
+</html>
